@@ -8,20 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="canvas"></div>
+    <canvas id="canvas"></canvas>
     <script>
-        canvas.onmousemove= (e)=>{
-            var div = document.createElement('div')
-            div.style.position = 'absolute'
-            div.style.left = e.clientX + 'px'
-            div.style.top = e.clientY + 'px'
-            div.style.width = '4px'
-            div.style.height = '4px'
-            div.style.borderRadius = '50%'
-            div.style.backgroundColor = 'black'
-            div.style.marginTop = '-2px'
-            div.style.marginleft = '-2px'
-            canvas.appendChild(div)
+        var canvas = document.getElementById('canvas')
+        canvas.width = document.documentElement.clientWidth
+        canvas.height = document.documentElement.clientHeight
+        var ctx = canvas.getContext('2d')
+        console.log(canvas.height)
+        ctx.fillStyle = 'blue'
+        canvas.onmousemove = (e) => {
+            ctx.fillRect(e.clientX - 2, e.clientY - 2, 4, 4)
         }
     </script>
 </body>
